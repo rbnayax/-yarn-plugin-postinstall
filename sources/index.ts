@@ -6,6 +6,9 @@ const scriptName = 'postinstallDev'
 const plugin: Plugin = {
   hooks: {
     async afterAllInstalled(project: Project) {
+      if (process.env.CI) {
+        return;
+      }
       const locator = project.topLevelWorkspace.anchoredLocator
       if (await scriptUtils.hasPackageScript(locator, scriptName, { project })) {
         const exitCode = await scriptUtils.executePackageScript(locator, scriptName, [], {
