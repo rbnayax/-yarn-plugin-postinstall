@@ -1,18 +1,18 @@
 {
-  "name": "yarn-plugin-post-install-dev",
+  "name": "yarn-plugin-post-install",
   "main": "./sources/index.ts",
   "scripts": {
     "build": "builder build plugin",
-    "postinstallDev": "echo test message"
+    "postinstallAll": "echo test message"
   },
   "dependencies": {
-    "@yarnpkg/core": "^4.0.0-rc.4"
+    "@yarnpkg/core": "^4.0.3"
   },
   "devDependencies": {
-    "@types/node": "^17.0.23",
-    "@yarnpkg/builder": "4.0.0-rc.4",
-    "typescript": "4.6.4"
+    "@types/node": "^20.11.20",
+    "@yarnpkg/builder": "^4.0.0",
+    "typescript": "^5.3.3"
   },
   "license": "MIT",
-  "packageManager": "yarn@3.2.0"
+  "packageManager": "yarn@4.1.0"
 }

@@ -1,14 +1,11 @@
 import { Plugin, Project, scriptUtils } from '@yarnpkg/core'
 
-const scriptName = 'postinstallDev'
+const scriptName = 'postinstallAll'
 
 // @see https://github.com/yarnpkg/berry/blob/d7d260e4ee6e39ed4b3dac1fdabbed025bf99899/packages/plugin-essentials/sources/commands/run.ts#L82
 const plugin: Plugin = {
   hooks: {
     async afterAllInstalled(project: Project) {
-      if (process.env.CI) {
-        return;
-      }
       const locator = project.topLevelWorkspace.anchoredLocator
       if (await scriptUtils.hasPackageScript(locator, scriptName, { project })) {
         const exitCode = await scriptUtils.executePackageScript(locator, scriptName, [], {
